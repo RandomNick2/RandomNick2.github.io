@@ -6,7 +6,62 @@
 		<title>Document</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="https://visit.cyou/js/jquery-3.1.1.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
 		<style>
+			* {
+				font-family: 'Inter', sans-serif;
+				font-optical-sizing: auto;
+			}
+
+			.custom-checkbox {
+				display: inline-flex;
+				align-items: center;
+				cursor: pointer;
+				font-size: 16px;
+				user-select: none;
+			}
+
+			.custom-checkbox input {
+				display: none;
+			}
+
+			.custom-checkbox .checkmark {
+				width: 20px;
+				height: 20px;
+				border-radius: 4px;
+				background-color: #fff;
+				border: 2px solid #2ecc71;
+				margin-right: 8px;
+				position: relative;
+				transition: background-color 0.2s ease;
+			}
+
+			.custom-checkbox input:checked + .checkmark {
+				background-color: #2ecc71;
+			}
+
+			.custom-checkbox .checkmark::after {
+				content: '';
+				position: absolute;
+				left: 5px;
+				top: 2px;
+				width: 6px;
+				height: 12px;
+				border: solid white;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg);
+				opacity: 0;
+				transition: opacity 0.2s ease;
+			}
+
+			.custom-checkbox input:checked + .checkmark::after {
+				opacity: 1;
+			}
 			* {
 				box-sizing: border-box;
 				-webkit-tap-highlight-color: transparent;
@@ -876,7 +931,7 @@
 
 	<body class="bg-[#f3f5f7] max-w-screen">
 		<header class="bg-white py-2.5 border-[1px] border-gray-300">
-			<div class="items-center pl-3 md:pl-[350px] flex">
+			<div class="items-center pl-3 lg:pl-[364px] flex">
 				<a href="" class="block">
 					<div class="flex flex-col items-end">
 						<span class="text-[#17D286] text-xl font-semibold">1-stvilla</span>
@@ -897,10 +952,10 @@
 						<div
 							class="flex flex-col w-full lg:w-[750px] bg-white px-[20px] pt-[10px] pb-[40px]"
 						>
-							<h2 class="text-xl">Booking Details</h2>
+							<h2 class="text-xl font-semibold">Booking Details</h2>
 							<div class="flex max-lg:flex-col justify-between">
 								<div class="flex flex-col pt-[10px]">
-									<h3 class="text-base">Check-in Date</h3>
+									<h3 class="text-base font-semibold">Check-in Date</h3>
 									<span class="text-gray-500 text-sm"
 										>Tuesday, October 6, 2026</span
 									>
@@ -909,7 +964,7 @@
 									>
 								</div>
 								<div class="flex flex-col pt-[10px]">
-									<h3 class="text-base">Check-out Date</h3>
+									<h3 class="text-base font-semibold">Check-out Date</h3>
 									<span class="text-gray-500 text-sm"
 										>Tuesday, October 13, 2026</span
 									>
@@ -922,7 +977,7 @@
 								class="flex max-lg:flex-col justify-between lg:pr-2 pt-[10px]"
 							>
 								<div class="flex flex-col pt-[10px]">
-									<h3 class="text-base">Your Stay</h3>
+									<h3 class="text-base font-semibold">Your Stay</h3>
 									<!-- <span class="text-gray-500 text-sm">Duration: 7 nights</span> -->
 									<span class="text-gray-500 text-sm">Deposit: €500</span>
 									<span class="text-gray-500 text-sm"
@@ -930,7 +985,9 @@
 									>
 								</div>
 								<div class="flex flex-col pt-[10px]">
-									<h3 class="text-base">Owner Contact Information</h3>
+									<h3 class="text-base font-semibold">
+										Owner Contact Information
+									</h3>
 									<span class="text-gray-500 text-sm">Arianna Diaz</span>
 									<span class="text-gray-500 text-sm"
 										>contact@1stvilla.com</span
@@ -941,8 +998,8 @@
 						<div
 							class="flex flex-col w-full lg:w-[750px] gap-[10px] bg-white px-[20px] pt-[10px] mt-[20px] pb-[40px]"
 						>
-							<h2 class="text-xl">Important information</h2>
-							<h3 class="text-base">
+							<h2 class="text-xl font-semibold">Important information</h2>
+							<h3 class="text-base font-medium">
 								If you are experiencing issues with the payment process, please
 								do not hesitate to contact our support team via the chat
 								available on the payment page. <br />
@@ -960,8 +1017,8 @@
 						<div
 							class="flex flex-col w-full lg:w-[750px] gap-[10px] bg-white px-[20px] pt-[10px] mt-[20px] pb-[10px]"
 						>
-							<h2 class="text-xl">Pay online</h2>
-							<h3 class="text-base">
+							<h2 class="text-xl font-semibold">Pay online</h2>
+							<h3 class="text-base font-medium">
 								You'll pay when you complete this booking
 							</h3>
 							<div class="border-b-[1px] pt-[10px] lg:w-[550px]"></div>
@@ -1187,7 +1244,10 @@
 						</div>
 						<div class="flex flex-col py-[20px] w-full lg:w-[750px]">
 							<div class="flex pl-[10px] gap-[10px] items-baseline">
-								<input type="checkbox" class="scale-150" />
+								<label class="custom-checkbox">
+									<input type="checkbox" />
+									<span class="checkmark"></span>
+								</label>
 								<p class="text-sm">
 									I consent to receiving marketing emails from 1-stvilla.com,
 									including promotions, personalized recommendations, rewards,
@@ -1206,13 +1266,15 @@
 						<div
 							class="flex flex-col w-full lg:w-[750px] pt-[10px] gap-[15px] px-[20px] bg-white"
 						>
-							<h2 class="text-xl">How much will the cancellation cost?</h2>
+							<h2 class="text-xl font-semibold">
+								How much will the cancellation cost?
+							</h2>
 							<span class="">Free cancellation at any time.</span>
 							<div class="border-b-[1px] pt-[10px] w-full lg:w-[550px]"></div>
-							<h2 class="text-xl">Refund schedule</h2>
+							<h2 class="text-xl font-semibold">Refund schedule</h2>
 							<span class="">You can request a refund at any time.</span>
 							<div class="border-b-[1px] pt-[10px] w-full lg:w-[550px]"></div>
-							<h2 class="text-xl">Ground rules</h2>
+							<h2 class="text-xl font-semibold">Ground rules</h2>
 							<span class=""
 								>We ask every guest to remember a few simple things about what
 								makes a great guest.</span
@@ -1239,41 +1301,43 @@
 							class="w-full"
 						/>
 						<div class="flex flex-col bg-white px-[20px] pt-[10px] pb-[30px]">
-							<h2 class="text-xl">Booking Number: WOYL6L9</h2>
-							<span class="text-black text-sm pt-[10px]"
+							<h2 class="text-xl font-semibold">Booking Number: WOYL6L9</h2>
+							<span class="text-black font-semibold text-sm pt-[10px]"
 								>Villa Arianna in Positano</span
 							>
 							<!-- <span class="text-gray-400 text-sm" -->
-								<!-- >6 Bedrooms / 6 Bathrooms / Sleeps 14</span -->
+							<!-- >6 Bedrooms / 6 Bathrooms / Sleeps 14</span -->
 							<!-- > -->
 							<!-- <span class="text-gray-400 text-sm">Positano, Italy</span> -->
-							<h3 class="text-base pt-[10px]">
+							<h3 class="text-base font-semibold pt-[10px]">
 								Check-in Date: Tuesday, October 6, 2026
 							</h3>
-							<h3 class="text-base">
+							<h3 class="text-base font-semibold">
 								Check-out Date: Tuesday, October 13, 2026
 							</h3>
 							<div class="flex justify-between pt-[10px]">
-								<span class="text-black text-sm">Rent: </span>
+								<span class="text-black font-semibold text-sm">Rent: </span>
 								<!-- <span class="text-black text-sm">€450 x 7 nights </span> -->
 								<span class="text-black text-sm">€3,150.00</span>
 							</div>
 							<div class="flex justify-between pt-[10px]">
-								<span class="text-black text-sm">Deposit:</span>
+								<span class="text-black font-semibold text-sm">Deposit:</span>
 								<span class="text-black text-sm">€500.00</span>
 							</div>
 							<div class="flex justify-between pt-[10px]">
-								<span class="text-black text-sm">Cleaning Fee: </span>
+								<span class="text-black font-semibold text-sm"
+									>Cleaning Fee:
+								</span>
 								<span class="text-black text-sm">€0.00</span>
 							</div>
 							<div class="flex justify-between pt-[10px]">
-								<span class="text-black text-sm">Tax:</span>
+								<span class="text-black font-semibold text-sm">Tax:</span>
 								<span class="text-black text-sm">€0.00</span>
 							</div>
 							<div class="pl-[30px] pt-[10px] border-b-[1px]"></div>
 							<div class="flex justify-between">
-								<h2 class="text-2xl pt-[10px]">Total:</h2>
-								<h2 class="text-2xl pt-[10px]">€3,650.00</h2>
+								<h2 class="text-2xl font-semibold pt-[10px]">Total:</h2>
+								<h2 class="text-2xl font-semibold pt-[10px]">€3,650.00</h2>
 							</div>
 						</div>
 					</div>
